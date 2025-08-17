@@ -11,11 +11,26 @@ app.use(express.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"views"));
 
-app.set(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"public")));
 
-// Basic route
-app.get("/",(req,res)=>{
-    res.send("server working well");
+//temp array instead of databases
+let posts = [
+    {
+        username:"naba yousuf",
+        content :"i love coding"
+    },
+    {
+        username:"saba",
+        content :"i love cooking"
+    },
+    {
+        username:"fatima",
+        content :"i love travelling"
+    }
+];
+//creating api
+app.get("/posts",(req,res)=>{
+    res.render("index.ejs", {posts});
 })
 
 app.listen(port , ()=> {
