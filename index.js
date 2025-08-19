@@ -16,14 +16,17 @@ app.use(express.static(path.join(__dirname,"public")));
 //temp array instead of databases
 let posts = [
     {
+        id:"1a",
         username:"naba yousuf",
         content :"i love coding"
     },
     {
+        id:"2b",
         username:"saba",
         content :"i love cooking"
     },
     {
+        id:"3c",
         username:"fatima",
         content :"i love travelling"
     }
@@ -38,6 +41,13 @@ app.get("/posts/new",(req,res)=>{
 });
 
 app.post("/posts",(req,res)=>{
+    let {username,content} = req.body;
+    posts.push({username,content});
+    // res.send(" post req working")
+    res.redirect("/posts");
+});
+
+app.post("/posts/:id",(req,res)=>{
     let {username,content} = req.body;
     posts.push({username,content});
     // res.send(" post req working")

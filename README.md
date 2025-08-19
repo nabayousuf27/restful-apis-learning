@@ -25,5 +25,7 @@ It is an **architectural style** that defines a set of **constraints and princip
 - **PUT** → Update existing data (or partially update)  
 - **DELETE** → Remove data  
 
-> ✅ REST best practice: use **nouns** for endpoints instead of verbs.  
-Example:  
+> ✅ REST best practice: use **nouns** for endpoints instead of verbs.
+ Created Quora Post
+ to add new post delete post or modify post. 
+
