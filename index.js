@@ -48,10 +48,10 @@ app.post("/posts",(req,res)=>{
 });
 
 app.post("/posts/:id",(req,res)=>{
-    let {username,content} = req.body;
-    posts.push({username,content});
-    // res.send(" post req working")
-    res.redirect("/posts");
+    let { id } = req.params;
+    let post = posts .find((p)=> id === p.id)
+    console.log(post);
+    res.send("req working");
 });
 
 app.listen(port , ()=> {
