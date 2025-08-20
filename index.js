@@ -47,7 +47,7 @@ app.post("/posts",(req,res)=>{
     res.redirect("/posts");
 });
 
-app.post("/posts/:id",(req,res)=>{
+app.get("/posts/:id",(req,res)=>{
     let { id } = req.params;
     let post = posts .find((p)=> id === p.id)
     console.log(post);
