@@ -50,8 +50,7 @@ app.post("/posts",(req,res)=>{
 app.get("/posts/:id",(req,res)=>{
     let { id } = req.params;
     let post = posts .find((p)=> id === p.id)
-    console.log(post);
-    res.send("req working");
+    res.render("show.ejs" , {post});
 });
 
 app.listen(port , ()=> {
