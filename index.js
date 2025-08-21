@@ -3,6 +3,7 @@ const app = express();
 const port = 8080;
 //to use public and views folder
 const path = require("path");
+const { v4 : uuidv4} = require('uuid');
 
 // Parse incoming request data
 app.use(express.urlencoded({extended:true}));
@@ -16,17 +17,17 @@ app.use(express.static(path.join(__dirname,"public")));
 //temp array instead of databases
 let posts = [
     {
-        id:"1a",
+        id:uuidv4(),
         username:"naba yousuf",
         content :"i love coding"
     },
     {
-        id:"2b",
+        id:uuidv4(),
         username:"saba",
         content :"i love cooking"
     },
     {
-        id:"3c",
+        id:uuidv4(),
         username:"fatima",
         content :"i love travelling"
     }
@@ -42,7 +43,8 @@ app.get("/posts/new",(req,res)=>{
 
 app.post("/posts",(req,res)=>{
     let {username,content} = req.body;
-    posts.push({username,content});
+    posts.push({id, username,content});
+    let id = uuidv4();
     // res.send(" post req working")
     res.redirect("/posts");
 });
