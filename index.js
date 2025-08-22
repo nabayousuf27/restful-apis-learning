@@ -43,8 +43,8 @@ app.get("/posts/new",(req,res)=>{
 
 app.post("/posts",(req,res)=>{
     let {username,content} = req.body;
-    posts.push({id, username,content});
     let id = uuidv4();
+    posts.push({id, username,content});
     // res.send(" post req working")
     res.redirect("/posts");
 });
@@ -54,7 +54,14 @@ app.get("/posts/:id",(req,res)=>{
     let post = posts .find((p)=> id === p.id)
     res.render("show.ejs" , {post});
 });
-
+app.patch("/posts/:id", (req,res)=>{
+     let { id } = req.params;
+     let newContent = req.body.content;
+     let post = posts .find((p)=> id === p.id)
+     post.content = newContent;
+     console.log(post);
+     res.send("patch request working");
+});
 app.listen(port , ()=> {
     console.log("listening on port 8080");
 })
