@@ -28,4 +28,4 @@ It is an **architectural style** that defines a set of **constraints and princip
 > ✅ REST best practice: use **nouns** for endpoints instead of verbs.
  Created Quora Post
  to add new post delete post or modify post. 
-
+Made Quora post using rest apis to add, delete, or modify post
