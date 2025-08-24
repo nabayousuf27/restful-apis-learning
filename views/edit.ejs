@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit post</title>
+</head>
+<body>
+    <form method="post" action="/posts">
+    <p>Post id : <%= post.id %></p>
+    <div class="post">
+        <h3 class="user"><%= post.username %></h3>
+        <h4 ><%= post.content %></h4>
+    </div>
+
+    <p>write new post</p>
+    <br><br>
+    <textarea  placeholder=" Write editted Post" name="newContent"><%= post.content %></textarea>
+    <br>
+    <button>Sumbit</button>
+
+    </form>
+</body>
+</html>

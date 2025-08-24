@@ -62,6 +62,13 @@ app.patch("/posts/:id", (req,res)=>{
      console.log(post);
      res.send("patch request working");
 });
+app.patch("/posts/:id/edit", (req,res)=>{
+     let { id } = req.params;
+     let post = posts .find((p)=> id === p.id)
+     let newContent = req.body.content;
+     post.content = newContent;
+     res.render("edit.ejs" , {post});
+});
 app.listen(port , ()=> {
     console.log("listening on port 8080");
 })
